@@ -13,5 +13,6 @@ class TweetsController < ApplicationController
     else
       redirect_to :action => "new"
     end
+  
   end
 end  
