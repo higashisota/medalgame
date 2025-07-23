@@ -8,7 +8,9 @@ Rails.application.routes.draw do
   get 'hello/link' => 'hello#link'
   get 'tweets/index' => 'tweets#index'
   root 'tweets#index'
-
+  get 'tweets/new' => 'tweets#new'
+resources :tweets
+post 'tweets' => 'tweets#create'
   # Defines the root path route ("/")
   # root "posts#index"
 end
