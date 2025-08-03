@@ -1,2 +1,36 @@
-自由に投稿してください！
-<%= link_to "新規投稿ページへ", tweets_new_path %>
+<h1>GeekTwitter</h1>
+<%= button_to 'ログアウト', destroy_user_session_path, method: :delete %>
+<h3>Tweet一覧</h3>
+<%= link_to "新規投稿へ", tweets_new_path %>
+<div class="tweets-container">
+  <% @tweets.each do |t| %>
+    <div class="tweet">
+       <% if t.image.attached? %>
+            <%= image_tag t.image, size: '250x200'%>
+        <% end %>
+
+         <%=  video_tag t.video_url ,:controls => true if t.video?%>
+
+      <%= t.body %>
+      <%= t.created_at %>
+    <%= link_to "詳細へ", tweet_path(t.id) %>
+    <%= link_to "編集する", edit_tweet_path(t.id) %>
+    <%= button_to "削除する", tweet_path(t.id), method: :delete %>
+    </div>
+  <% end %>
+
+  
+</div>
+<%= form_tag({controller:"tweets",action:"index"}, method: :get) do %>
+    <% Tag.all.each do |t| %>
+        <li><%= check_box :tag_ids, t.name %><%= t.name %></li>
+    <% end %>
+    <%= submit_tag '検索' %>
+<% end %>
+
+<%= form_tag({controller:"tweets",action:"index"}, method: :get) do %>
+    <%= text_field_tag :tag %>
+    <%= submit_tag 'タグを追加' %>
+
+  
+<% end %>
