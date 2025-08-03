@@ -21,7 +21,7 @@ test:
   database: storage/test.sqlite3
 
 production:
-  <<: *default
   adapter: postgresql
-  encoding: unicode
+  url: <%= ENV['DATABASE_URL'] %>
   pool: 5
+  sslmode: require

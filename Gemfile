@@ -21,7 +21,7 @@ gem 'carrierwave', '~> 2.2'
 
 
 group :development, :test do
-  gem 'sqlite3'
+  gem 'sqlite3', '~> 1.4'
   gem "debug", platforms: %i[ mri windows ]
 end
 
