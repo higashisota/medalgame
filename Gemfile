@@ -32,12 +32,12 @@ end
 group :test do
   gem "capybara"
   gem "selenium-webdriver"
-  gem 'sass-rails'
-  gem 'dotenv-rails'
-  gem 'cloudinary'
-  gem 'activestorage-cloudinary-service'
 end
 
 group :production do
   gem 'pg'
 end
+gem 'sass-rails'
+gem 'dotenv-rails'
+gem 'cloudinary'
+gem 'activestorage-cloudinary-service'

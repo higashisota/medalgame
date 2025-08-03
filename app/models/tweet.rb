@@ -1,6 +1,6 @@
 class Tweet < ApplicationRecord
-   has_one_attached :image
-   mount_uploader :video, VideoUploader
+    has_one_attached :image1
+    has_one_attached :movie
 
     #tweetsテーブルから中間テーブルに対する関連付け
   has_many :tweet_tag_relations, dependent: :destroy
