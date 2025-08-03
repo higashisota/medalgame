@@ -1,11 +1,11 @@
 <h1>GeekTwitter</h1>
 <%= button_to 'ログアウト', destroy_user_session_path, method: :delete %>
 <h3>Tweet一覧</h3>
-<%= link_to "新規投稿へ", tweets_new_path %>
+<%= link_to "新規投稿へ", new_tweet_path %>
 <div class="tweets-container">
   <% @tweets.each do |t| %>
     <div class="tweet">
-       <% if t.image.attached? %>
+       <% if t.image1.attached? %>
             <%= image_tag t.image, size: '250x200'%>
         <% end %>
 
